@@ -1,0 +1,25 @@
+# --- Seguridad ---
+.env
+config.py
+# (Si usas config.py para guardar el TOKEN, asegúrate de que esté aquí)
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+build/
+dist/
+
+# --- Base de datos / Logs ---
+*.log
+database.db
+*.json
+
+# --- Sistema ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

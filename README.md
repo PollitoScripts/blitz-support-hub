@@ -6,7 +6,8 @@
 **Blitz Support Hub** es un ecosistema de soporte técnico que une la agilidad de un **Frontend moderno** con la potencia de **Discord** como centro de operaciones.
 
 ## 📐 Arquitectura del Sistema
-mermaid
+
+```mermaid
 graph TD
     A[index.html / Cliente] -->|POST JSON| B(API Quart en Render)
     B -->|Check ID| C{¿ID en Gist?}
@@ -16,9 +17,6 @@ graph TD
     E --> F
     F -->|Hilo de Soporte| G[Gestión Técnica Blitz]
 ---
-
-### PARTE 2 (Copia esto justo debajo de la Parte 1)
-
 ```markdown
 ## 🛠️ Stack Tecnológico
 - **Bot Engine:** Discord.py (Cogs Architecture)

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix It Blitz | Soluciones Web & Soporte IT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #09090b; color: #fafafa; scroll-behavior: smooth; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-text { background: linear-gradient(90deg, #4ade80, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="selection:bg-green-500/30">
+
+    <nav class="fixed w-full z-50 glass px-6 py-4 flex justify-between items-center">
+        <div class="text-xl font-extrabold tracking-tighter">
+            FIX <span class="text-green-500 italic">IT</span> BLITZ <span class="text-xs text-white/30 font-light ml-1">HUB</span>
+        </div>
+        <div class="hidden md:flex gap-8 text-sm font-medium text-white/60">
+            <a href="#servicios" class="hover:text-white transition">Servicios</a>
+            <a href="#planes" class="hover:text-white transition">Planes</a>
+            <a href="#proceso" class="hover:text-white transition">Metodología</a>
+        </div>
+        <a href="#contacto" class="px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-green-500 hover:text-white transition uppercase tracking-tighter">
+            ABRIR TICKET
+        </a>
+    </nav>
+
+    <header class="pt-40 pb-20 px-6 text-center max-w-5xl mx-auto">
+        <div class="inline-block px-3 py-1 rounded-full glass text-xs mono text-green-400 mb-6 uppercase tracking-widest">
+            SLA de respuesta rápida garantizado
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+            Optimiza tu entorno <span class="gradient-text">digital</span> a la velocidad del rayo.
+        </h1>
+        <p class="text-white/60 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+            Frontend especializado y soporte Helpdesk de nivel 1. Arreglo tu web, mantengo tus sistemas y acompaño a tus usuarios.
+        </p>
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+            <a href="#planes" class="px-8 py-4 bg-green-500 text-black rounded-xl font-bold hover:scale-105 transition shadow-[0_0_20px_rgba(74,222,128,0.3)] text-center">Explorar Hub</a>
+            <a href="#servicios" class="px-8 py-4 glass rounded-xl font-bold hover:bg-white/10 transition text-center text-white">Ver Proyectos</a>
+        </div>
+    </header>
+
+    <section id="servicios" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="p-8 rounded-3xl glass hover:border-green-500/50 transition group">
+                <div class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 italic uppercase tracking-tight">Frontend Development</h3>
+                <ul class="space-y-3 text-white/50 text-sm mono">
+                    <li>> Diseño y optimización de interfaces</li>
+                    <li>> Mantenimiento preventivo web</li>
+                    <li>> Mejora de tiempos de carga (Blitz Speed)</li>
+                    <li>> Arquitectura escalable y responsive</li>
+                </ul>
+            </div>
+
+            <div class="p-8 rounded-3xl glass hover:border-blue-500/50 transition group">
+                <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18.36 5.64L16.95 7.05M16.95 16.95l1.41 1.41M7.05 16.95l-1.41 1.41M7.05 7.05L5.64 5.64M12 12a4 4 0 100-8 4 4 0 000 8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 italic uppercase tracking-tight">Soporte IT L1</h3>
+                <ul class="space-y-3 text-white/50 text-sm mono">
+                    <li>> Resolución de incidencias técnicas</li>
+                    <li>> Acompañamiento en onboarding</li>
+                    <li>> Gestión de colas según impacto/urgencia</li>
+                    <li>> Documentación de soluciones (Base de Conocimiento)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="planes" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4 italic uppercase tracking-widest">Planes de <span class="text-green-500">Mantenimiento & Soporte</span></h2>
+            <p class="text-white/40 max-w-xl mx-auto">Escalabilidad real para tu negocio con soporte técnico Blitz.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass p-8 rounded-3xl flex flex-col hover:border-white/20 transition text-left">
+                <h4 class="mono text-xs text-green-400 mb-2">// ESSENTIALS</h4>
+                <h3 class="text-2xl font-bold mb-6">Mantenimiento Web</h3>
+                <div class="text-4xl font-black mb-6">49€<span class="text-sm text-white/30 font-light">/mes</span></div>
+                <ul class="space-y-4 mb-10 flex-grow text-sm text-white/60 italic">
+                    <li>✅ Actualizaciones de seguridad</li>
+                    <li>✅ Optimización de carga (Speed)</li>
+                    <li>✅ Copias de seguridad semanales</li>
+                    <li>✅ 1h de ajustes Frontend/mes</li>
+                </ul>
+                <a href="#contacto" class="w-full py-3 glass rounded-xl font-bold hover:bg-white/10 transition text-center text-white">Empezar</a>
+            </div>
+
+            <div class="p-8 rounded-3xl flex flex-col border-2 border-green-500/50 bg-green-500/[0.02] relative transform md:scale-105 text-left">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-black px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">RECOMENDADO</div>
+                <h4 class="mono text-xs text-green-400 mb-2">// FULL HUB</h4>
+                <h3 class="text-2xl font-bold mb-6 italic">Blitz Support Hub</h3>
+                <div class="text-4xl font-black mb-6">149€<span class="text-sm text-white/30 font-light">/mes</span></div>
+                <ul class="space-y-4 mb-10 flex-grow text-sm text-white/80 italic">
+                    <li>🚀 Todo lo del plan Essentials</li>
+                    <li>🛠 Soporte IT Helpdesk (L1)</li>
+                    <li class="text-green-400 font-bold">⚡ SLA de respuesta < 4h</li>
+                    <li>✅ Gestión de tickets vía Discord</li>
+                    <li>✅ 4h de soporte o desarrollo/mes</li>
+                </ul>
+                <a href="#contacto" class="w-full py-3 bg-green-500 rounded-xl font-bold text-black hover:bg-green-400 transition shadow-lg shadow-green-500/20 text-center">Contratar Ahora</a>
+            </div>
+
+            <div class="glass p-8 rounded-3xl flex flex-col hover:border-white/20 transition text-white/50 text-left">
+                <h4 class="mono text-xs mb-2">// ENTERPRISE</h4>
+                <h3 class="text-2xl font-bold mb-6 text-white italic">Hub a Medida</h3>
+                <div class="text-4xl font-black mb-6 text-white italic">Consultar</div>
+                <ul class="space-y-4 mb-10 flex-grow text-sm italic">
+                    <li>✅ Soporte técnico ilimitado</li>
+                    <li>✅ Desarrollo de apps a medida</li>
+                    <li>✅ Gestión de servidores & Cloud</li>
+                    <li>✅ Onboarding de empleados</li>
+                </ul>
+                <a href="#contacto" class="w-full py-3 glass rounded-xl font-bold hover:bg-white/10 transition text-center text-white">Contactar</a>
+            </div>
+        </div>
+    </section>
+	
+	 <section id="proceso" class="py-20 bg-white/[0.02] border-y border-white/5 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">Cómo gestiono tu Hub de IT</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="space-y-4">
+                    <div class="text-4xl font-black text-white/10 italic">01</div>
+                    <h4 class="font-bold">Registro & Triaje</h4>
+                    <p class="text-xs text-white/40">Entrada de incidencia y clasificación por impacto/urgencia.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-4xl font-black text-white/10 italic">02</div>
+                    <h4 class="font-bold">Intervención Blitz</h4>
+                    <p class="text-xs text-white/40">Aplicación de la solución más eficiente y rápida disponible.</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="text-4xl font-black text-white/10 italic">03</div>
+                    <h4 class="font-bold">Documentación</h4>
+                    <p class="text-xs text-white/40">Registro de la solución para evitar recurrencias futuras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+    <section id="soporte" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold gradient-text mb-4 italic uppercase">Metodología de Resolución</h2>
+            <p class="text-white/40 max-w-xl mx-auto italic">Gestión inteligente de incidencias basada en impacto y urgencia.</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-4 relative">
+            <div class="glass p-6 rounded-2xl relative overflow-hidden border-l-4 border-l-green-500/50">
+                <div class="absolute top-0 right-0 p-3 text-green-500/10 font-black text-4xl italic">01</div>
+                <h4 class="text-green-400 mono text-xs mb-4 uppercase tracking-tighter">// INTAKE</h4>
+                <p class="font-bold mb-2">Recepción</p>
+                <p class="text-xs text-white/40 italic leading-relaxed">Entrada de ticket vía Web o Discord.</p>
+            </div>
+            <div class="glass p-6 rounded-2xl relative overflow-hidden border-l-4 border-l-yellow-500/50">
+                <div class="absolute top-0 right-0 p-3 text-yellow-500/10 font-black text-4xl italic">02</div>
+                <h4 class="text-yellow-500 mono text-xs mb-4 uppercase tracking-tighter">// TRIAJE</h4>
+                <p class="font-bold mb-2">Clasificación</p>
+                <p class="text-xs text-white/40 italic leading-relaxed">Priorización inmediata de servicios críticos.</p>
+            </div>
+            <div class="glass p-6 rounded-2xl relative overflow-hidden border-l-4 border-l-blue-500/50">
+                <div class="absolute top-0 right-0 p-3 text-blue-500/10 font-black text-4xl italic">03</div>
+                <h4 class="text-blue-500 mono text-xs mb-4 uppercase tracking-tighter">// RESOLUCIÓN</h4>
+                <p class="font-bold mb-2">Intervención</p>
+                <p class="text-xs text-white/40 italic leading-relaxed">Diagnóstico y aplicación de solución Blitz.</p>
+            </div>
+            <div class="glass p-6 rounded-2xl relative overflow-hidden border-l-4 border-l-purple-500/50">
+                <div class="absolute top-0 right-0 p-3 text-purple-500/10 font-black text-4xl italic">04</div>
+                <h4 class="text-purple-500 mono text-xs mb-4 uppercase tracking-tighter">// ARCHIVO</h4>
+                <p class="font-bold mb-2">Lecciones</p>
+                <p class="text-xs text-white/40 italic leading-relaxed">Registro en la Base de Conocimiento.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 px-6 max-w-3xl mx-auto">
+        <div class="glass p-8 rounded-3xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
+            <h2 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter text-center">Abrir Incidencia <span class="text-green-500 text-center">Blitz</span></h2>
+            <form onsubmit="enviarIncidencia(event)" class="space-y-4 text-left">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs mono text-white/40 mb-2 uppercase">// Nombre</label>
+                        <input type="text" id="nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs mono text-white/40 mb-2 uppercase">// Email</label>
+                        <input type="email" id="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// ID de Cliente (Opcional para consultas)</label>
+                    <input type="text" id="cliente_id" placeholder="BLITZ-XXXX-XXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                </div>
+                <div>
+                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// Descripción del problema</label>
+                    <textarea id="problema" required rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition" placeholder="¿En qué podemos ayudarte hoy?"></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 bg-green-500 text-black font-black rounded-xl hover:scale-[1.01] transition shadow-lg shadow-green-500/20 uppercase tracking-tighter">
+                    Enviar a Central de Soporte
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 text-center text-white/20 text-xs mono border-t border-white/5">
+        &copy; 2026 FIX IT BLITZ HUB // BUILT FOR SCALE
+    </footer>
+
+	<script>
+	async function enviarIncidencia(event) {
+		event.preventDefault();
+		
+		// 1. Configuración de la URL de tu API en Render
+		const apiURL = "https://pollitos-discord.onrender.com/ticket";
+		
+		// 2. Elementos de la UI
+		const btn = event.target.querySelector('button');
+		const originalText = btn.innerText;
+		btn.innerText = "PROCESANDO...";
+		btn.disabled = true;
+
+		// 3. Recopilación de datos (formato limpio para tu Bot)
+		const data = {
+			nombre: document.getElementById('nombre').value,
+			email: document.getElementById('email').value,
+			cliente_id: document.getElementById('cliente_id').value || "GUEST",
+			problema: document.getElementById('problema').value
+		};
+
+		try {
+			// 4. Envío a Render (No a Discord directamente)
+			const response = await fetch(apiURL, {
+				method: 'POST',
+				headers: { 
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(data)
+			});
+
+			if (response.ok) {
+				alert("✅ Incidencia enviada. El equipo de Blitz la revisará en breve.");
+				event.target.reset();
+			} else { 
+				throw new Error("Error en la respuesta del servidor"); 
+			}
+		} catch (error) {
+			console.error("Error:", error);
+			alert("❌ Error de conexión con el Hub. Inténtalo de nuevo más tarde.");
+		} finally {
+			btn.innerText = originalText;
+			btn.disabled = false;
+		}
+	}
+</script>
+	
+</body>
+</html>

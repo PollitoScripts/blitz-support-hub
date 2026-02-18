@@ -29,6 +29,6 @@ graph TD
 - ✅ **Bridge API:** Los tickets de la web viajan de forma segura a Discord sin exponer Webhooks.
 - ✅ **Multitasking:** Servidor web y Bot de Discord corriendo en hilos paralelos.
 - ✅ **Soporte L1:** Clasificación de incidencias por impacto y urgencia.
-- 
+  
 ---
 Desarrollado por [Alejandro Tineo Morales/Blitz IT] – *Built for Scale.*

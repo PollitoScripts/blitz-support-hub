@@ -1,11 +1,11 @@
-# ⚡ Blitz Support Hub
+⚡ Blitz Support Hub
 
 ![Status](https://img.shields.io/badge/Status-Live-green) 
 ![Python](https://img.shields.io/badge/Python-3.14-blue)
 
 **Blitz Support Hub** es un ecosistema de soporte técnico que une la agilidad de un **Frontend moderno** con la potencia de **Discord** como centro de operaciones.
 
-## 📐 Arquitectura del Sistema
+📐 Arquitectura del Sistema
 
 ```mermaid
 graph TD

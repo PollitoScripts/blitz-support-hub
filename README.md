@@ -5,6 +5,21 @@
 
 **Blitz Support Hub** es un ecosistema de soporte técnico que une la agilidad de un **Frontend moderno** con la potencia de **Discord** como centro de operaciones.
 
+## 📐 Arquitectura del Sistema
+```mermaid
+graph TD
+    A[index.html / Cliente] -->|POST JSON| B(API Quart en Render)
+    B -->|Check ID| C{¿ID en Gist?}
+    C -->|Sí| D[🛡️ Marcado como VERIFICADO]
+    C -->|No| E[⚠️ Marcado como GUEST]
+    D --> F[Discord: Canal de Soporte]
+    E --> F
+    F -->|Hilo de Soporte| G[Gestión Técnica Blitz]
+---
+
+### PARTE 2 (Copia esto justo debajo de la Parte 1)
+
+```markdown
 ## 🛠️ Stack Tecnológico
 - **Bot Engine:** Discord.py (Cogs Architecture)
 - **API Gateway:** Quart (Asynchronous Flask-like API)
@@ -27,15 +42,4 @@
    - `GITHUB_TOKEN`
 
 ---
-
-## 📐 Arquitectura del Sistema
-```mermaid
-graph TD
-    A[index.html / Cliente] -->|POST JSON| B(API Quart en Render)
-    B -->|Check ID| C{¿ID en Gist?}
-    C -->|Sí| D[🛡️ Marcado como VERIFICADO]
-    C -->|No| E[⚠️ Marcado como GUEST]
-    D --> F[Discord: Canal de Soporte]
-    E --> F
-    F -->|Hilo de Soporte| G[Gestión Técnica Blitz]
 Desarrollado por [Alejandro Tineo Morales/Blitz IT] – *Built for Scale.*

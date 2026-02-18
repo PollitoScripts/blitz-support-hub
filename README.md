@@ -29,15 +29,5 @@ graph TD
 - ✅ **Bridge API:** Los tickets de la web viajan de forma segura a Discord sin exponer Webhooks.
 - ✅ **Multitasking:** Servidor web y Bot de Discord corriendo en hilos paralelos.
 - ✅ **Soporte L1:** Clasificación de incidencias por impacto y urgencia.
-
-## 🚀 Instalación
-1. Clona el repositorio.
-2. Crea un entorno virtual y ejecuta `pip install -r requirements.txt`.
-3. Configura tus variables en el panel de Render:
-   - `DISCORD_TOKEN`
-   - `ID_CANAL_SOPORTE`
-   - `GIST_ID`
-   - `GITHUB_TOKEN`
-
 ---
 Desarrollado por [Alejandro Tineo Morales/Blitz IT] – *Built for Scale.*

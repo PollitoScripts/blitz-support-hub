@@ -181,38 +181,58 @@
     </section>
 
     <section id="contacto" class="py-20 px-6 max-w-3xl mx-auto">
-        <div class="glass p-8 rounded-3xl relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
-            <h2 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter text-center">Abrir Incidencia <span class="text-green-500 text-center">Blitz</span></h2>
-            <form onsubmit="enviarIncidencia(event)" class="space-y-4 text-left">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-xs mono text-white/40 mb-2 uppercase">// Nombre</label>
-                        <input type="text" id="nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
-                    </div>
-                    <div>
-                        <label class="block text-xs mono text-white/40 mb-2 uppercase">// Email</label>
-                        <input type="email" id="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
-                    </div>
-                </div>
-				<div>
-   					 <label class="block text-xs mono text-white/40 mb-2 uppercase">// Nombre De Empresa / Organización</label>
-   					 <input type="text" id="empresa" placeholder="Nombre de tu empresa / Organización" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
-				</div>
+    <div class="glass p-8 rounded-3xl relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
+        <h2 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter text-center">Abrir Incidencia <span class="text-green-500">Blitz</span></h2>
+        
+        <form onsubmit="enviarIncidencia(event)" class="space-y-4 text-left">
+            <div class="grid md:grid-cols-2 gap-4">
                 <div>
-                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// ID de Cliente (Opcional para consultas)</label>
+                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// Nombre</label>
+                    <input type="text" id="nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                </div>
+                <div>
+                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// Email</label>
+                    <input type="email" id="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// Empresa</label>
+                    <input type="text" id="empresa" required placeholder="Nombre de tu negocio" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                </div>
+                <div>
+                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// ID de Cliente (Opcional)</label>
                     <input type="text" id="cliente_id" placeholder="BLITZ-XXXX-XXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
                 </div>
-                <div>
-                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// Descripción del problema</label>
-                    <textarea id="problema" required rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition" placeholder="¿En qué podemos ayudarte hoy?"></textarea>
+            </div>
+
+            <div>
+                <label class="block text-xs mono text-green-400 mb-2 uppercase font-bold">// ID de Usuario Discord (Para Sincronización)</label>
+                <div class="flex flex-col md:flex-row gap-2">
+                    <input type="text" id="discord_id" required 
+                           placeholder="Ej: 123456789012345678" 
+                           pattern="[0-9]{17,19}"
+                           class="flex-grow bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                    <a href="https://support.discord.com/hc/es/articles/206346498" target="_blank" 
+                       class="text-[10px] mono text-white/20 hover:text-green-500 flex items-center transition italic px-2">
+                        ¿Cómo obtener mi ID?
+                    </a>
                 </div>
-                <button type="submit" class="w-full py-4 bg-green-500 text-black font-black rounded-xl hover:scale-[1.01] transition shadow-lg shadow-green-500/20 uppercase tracking-tighter">
-                    Enviar a Central de Soporte
-                </button>
-            </form>
-        </div>
-    </section>
+            </div>
+
+            <div>
+                <label class="block text-xs mono text-white/40 mb-2 uppercase">// Descripción del problema</label>
+                <textarea id="problema" required rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition" placeholder="¿En qué podemos ayudarte hoy?"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-4 bg-green-500 text-black font-black rounded-xl hover:scale-[1.01] transition shadow-lg shadow-green-500/20 uppercase tracking-tighter">
+                Enviar a Central de Soporte
+            </button>
+        </form>
+    </div>
+</section>
 
     <footer class="py-12 px-6 text-center text-white/20 text-xs mono border-t border-white/5">
         &copy; 2026 FIX IT BLITZ HUB // BUILT FOR SCALE
@@ -220,52 +240,46 @@
 
 	<script>
 	async function enviarIncidencia(event) {
-		event.preventDefault();
-		
-		// 1. Configuración de la URL de tu API en Render
-		const apiURL = "https://pollitos-discord.onrender.com/ticket";
-		
-		// 2. Elementos de la UI
-		const btn = event.target.querySelector('button');
-		const originalText = btn.innerText;
-		btn.innerText = "PROCESANDO...";
-		btn.disabled = true;
+    event.preventDefault();
+    
+    const apiURL = "https://pollitos-discord.onrender.com/ticket";
+    const btn = event.target.querySelector('button');
+    const originalText = btn.innerText;
+    
+    btn.innerText = "PROCESANDO TICKET...";
+    btn.disabled = true;
 
-		// 3. Recopilación de datos (formato limpio para tu Bot)
-		const data = {
-			nombre: document.getElementById('nombre').value,
-			email: document.getElementById('email').value,
-			cliente_id: document.getElementById('cliente_id').value || "GUEST",
-			problema: document.getElementById('problema').value
-		};
+    const data = {
+        nombre: document.getElementById('nombre').value,
+        email: document.getElementById('email').value,
+        empresa: document.getElementById('empresa').value, 
+        discord_id: document.getElementById('discord_id').value,
+        cliente_id: document.getElementById('cliente_id').value || "GUEST",
+        problema: document.getElementById('problema').value
+    };
 
-		try {
-			// 4. Envío a Render (No a Discord directamente)
-			const response = await fetch(apiURL, {
-				method: 'POST',
-				headers: { 
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(data)
-			});
+    try {
+        const response = await fetch(apiURL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
 
-			if (response.ok) {
-				alert("✅ Incidencia enviada. El equipo de Blitz la revisará en breve.");
-				event.target.reset();
-			} else { 
-				throw new Error("Error en la respuesta del servidor"); 
-			}
-		} catch (error) {
-			console.error("Error:", error);
-			alert("❌ Error de conexión con el Hub. Inténtalo de nuevo más tarde.");
-		} finally {
-			btn.innerText = originalText;
-			btn.disabled = false;
-		}
-	}
+        if (response.ok) {
+            alert("✅ Incidencia enviada. Si eres cliente VIP, tu canal se activará al entrar a Discord.");
+            event.target.reset();
+        } else { 
+            throw new Error("Error en la respuesta del servidor"); 
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("❌ Error de conexión con el Hub.");
+    } finally {
+        btn.innerText = originalText;
+        btn.disabled = false;
+    }
+}
 </script>
 	
 </body>
-
 </html>
-

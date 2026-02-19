@@ -11,6 +11,101 @@
         .mono { font-family: 'JetBrains Mono', monospace; }
         .gradient-text { background: linear-gradient(90deg, #4ade80, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+		
+		/* Adaptación Colores Blitz para Wise Wombat */
+	.uiverse-btn {
+	  --color: #4ade80; /* Verde Blitz */
+	  --background: #09090b;
+	  font-family: 'JetBrains Mono', monospace;
+	  padding: 10px 25px;
+	  border: 2px solid var(--color);
+	  background: var(--background);
+	  color: var(--color);
+	  position: relative;
+	  z-index: 1;
+	  border-radius: 12px;
+	  cursor: pointer;
+	  transform: scale(1.5); /* Lo hacemos un poco más grande */
+	}
+
+	.uiverse-wrapper {
+	  position: relative;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	}
+
+	.uiverse-text {
+	  font-size: 14px;
+	  font-weight: 800;
+	  letter-spacing: 2px;
+	}
+
+	.uiverse-flower {
+	  position: absolute;
+	  background-color: var(--color);
+	  width: 4px;
+	  height: 4px;
+	  border-radius: 50%;
+	  opacity: 0;
+	  transition: all 0.5s;
+	}
+
+	.uiverse-btn:hover .uiverse-flower {
+	  opacity: 1;
+	  box-shadow: 0 0 10px var(--color), 0 0 20px var(--color);
+	}
+	
+	.uiverse-btn:active {
+    transform: scale(1.2); /* Se encoge un pelín al hacer clic para dar feedback */
+	}
+
+	a.block:hover {
+		filter: brightness(1.1); /* Brilla un poco más al pasar el ratón */
+	}
+	
+	/* Animaciones de expansión al pasar el mouse */
+	.uiverse-btn:hover .uiverse-flower1 { transform: translate(-40px, -30px); }
+	.uiverse-btn:hover .uiverse-flower2 { transform: translate(40px, -30px); }
+	.uiverse-btn:hover .uiverse-flower3 { transform: translate(-40px, 30px); }
+	.uiverse-btn:hover .uiverse-flower4 { transform: translate(40px, 30px); }
+	.uiverse-btn:hover .uiverse-flower5 { transform: translate(0, -45px); }
+	.uiverse-btn:hover .uiverse-flower6 { transform: translate(0, 45px); }
+	
+	/* Indicador de Estado Activo */
+	.status-container {
+	  display: flex;
+	  align-items: center;
+	  gap: 10px;
+	  background: rgba(74, 222, 128, 0.05);
+	  padding: 8px 16px;
+	  border-radius: 50px;
+	  border: 1px solid rgba(74, 222, 128, 0.2);
+	  margin-bottom: 20px;
+	}
+
+	.status-dot {
+	  width: 8px;
+	  height: 8px;
+	  background-color: #4ade80;
+	  border-radius: 50%;
+	  position: relative;
+	  animation: pulse-green 2s infinite;
+	}
+
+	.status-text {
+	  font-family: 'JetBrains Mono', monospace;
+	  font-size: 11px;
+	  color: #4ade80;
+	  letter-spacing: 1px;
+	  text-transform: uppercase;
+	}
+
+	@keyframes pulse-green {
+	  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+	  70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
+	  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+	}
     </style>
 </head>
 <body class="selection:bg-green-500/30">
@@ -180,63 +275,117 @@
         </div>
     </section>
 
-    <section id="contacto" class="py-20 px-6 max-w-3xl mx-auto">
-    <div class="glass p-8 rounded-3xl relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
-        <h2 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter text-center">Abrir Incidencia <span class="text-green-500">Blitz</span></h2>
+    <section id="contacto" class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="glass p-8 rounded-3xl relative overflow-hidden order-2 lg:order-1">
+                <div class="absolute top-0 left-0 w-1 h-full bg-green-500"></div>
+                <h2 class="text-2xl font-bold mb-6 italic uppercase tracking-tighter text-center">Abrir Incidencia <span class="text-green-500">Blitz</span></h2>
+                
+                <form onsubmit="enviarIncidencia(event)" class="space-y-4 text-left">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs mono text-white/40 mb-2 uppercase">// Nombre</label>
+                            <input type="text" id="nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs mono text-white/40 mb-2 uppercase">// Email</label>
+                            <input type="email" id="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs mono text-white/40 mb-2 uppercase">// Empresa</label>
+                            <input type="text" id="empresa" required placeholder="Nombre" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs mono text-white/40 mb-2 uppercase">// ID Cliente</label>
+                            <input type="text" id="cliente_id" placeholder="BLITZ-XXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs mono text-green-400 mb-2 uppercase font-bold">// ID Discord</label>
+                        <input type="text" id="discord_id" required placeholder="Ej: 123456789" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs mono text-white/40 mb-2 uppercase">// Descripción</label>
+                        <textarea id="problema" required rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition" placeholder="¿Qué sucede?"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-green-500 text-black font-black rounded-xl hover:scale-[1.01] transition shadow-lg shadow-green-500/20 uppercase tracking-tighter">
+                        Enviar a Central de Soporte
+                    </button>
+                </form>
+            </div>
+
+            <div class="flex flex-col items-center justify-center space-y-8 order-1 lg:order-2">
+                <div class="status-container">
+                    <div class="status-dot"></div>
+                    <span class="status-text">Blitz Core: Online & Monitoring</span>
+                </div>
+
+                <div class="text-center">
+                    <h3 class="text-3xl font-black italic uppercase mb-2">Soporte <span class="text-green-500 italic">Blitz</span></h3>
+                    <p class="text-white/40 mono text-sm leading-relaxed max-w-xs mx-auto">
+                        Infraestructura de respuesta crítica.<br>Tu incidencia será procesada por nuestro núcleo IT.
+                    </p>
+                </div>
+                
+               <div class="py-6">
+					<a href="https://discord.gg/mbdhAuwvCP" target="_blank" class="block">
+						<button class="uiverse-btn" type="button">
+							<div class="uiverse-wrapper">
+								<div class="uiverse-text">SUPPORT CHANNEL</div>
+								<div class="uiverse-flower uiverse-flower1"></div>
+								<div class="uiverse-flower uiverse-flower2"></div>
+								<div class="uiverse-flower uiverse-flower3"></div>
+								<div class="uiverse-flower uiverse-flower4"></div>
+								<div class="uiverse-flower uiverse-flower5"></div>
+								<div class="uiverse-flower uiverse-flower6"></div>
+							</div>
+						</button>
+					</a>
+				</div>
+            </div>
+        </div>
+    </section>
+
+   <footer class="py-16 px-6 border-t border-white/5 bg-[#0a0a0c]">
+    <div class="max-w-6xl mx-auto flex flex-col items-center">
         
-        <form onsubmit="enviarIncidencia(event)" class="space-y-4 text-left">
-            <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// Nombre</label>
-                    <input type="text" id="nombre" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
-                </div>
-                <div>
-                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// Email</label>
-                    <input type="email" id="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
-                </div>
+        <div class="relative mb-10 p-6 bg-white/[0.02] border border-white/10 rounded-sm max-w-2xl">
+            <div class="absolute -top-[1px] -left-[1px] w-4 h-4 border-t-2 border-l-2 border-green-500"></div>
+            <div class="absolute -bottom-[1px] -right-[1px] w-4 h-4 border-b-2 border-r-2 border-green-500"></div>
+
+            <div class="flex items-center gap-3 mb-4">
+                <div class="h-[1px] flex-grow bg-white/10"></div>
+                <span class="text-[9px] mono text-white/30 uppercase tracking-[0.4em]">Core Philosophy</span>
+                <div class="h-[1px] flex-grow bg-white/10"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-4">
-                <div>
-                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// Empresa</label>
-                    <input type="text" id="empresa" required placeholder="Nombre de tu negocio" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
-                </div>
-                <div>
-                    <label class="block text-xs mono text-white/40 mb-2 uppercase">// ID de Cliente (Opcional)</label>
-                    <input type="text" id="cliente_id" placeholder="BLITZ-XXXX-XXXX" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
-                </div>
-            </div>
+            <p class="text-sm md:text-lg text-white/80 leading-relaxed font-medium text-center px-4">
+                "No soy un programador freelance que te contestará cuando pueda. 
+                <span class="text-green-400 italic">Soy un servicio técnico con un protocolo de emergencia.</span>"
+            </p>
 
-            <div>
-                <label class="block text-xs mono text-green-400 mb-2 uppercase font-bold">// ID de Usuario Discord (Para Sincronización)</label>
-                <div class="flex flex-col md:flex-row gap-2">
-                    <input type="text" id="discord_id" required 
-                           placeholder="Ej: 123456789012345678" 
-                           pattern="[0-9]{17,19}"
-                           class="flex-grow bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition">
-                    <a href="https://support.discord.com/hc/es/articles/206346498" target="_blank" 
-                       class="text-[10px] mono text-white/20 hover:text-green-500 flex items-center transition italic px-2">
-                        ¿Cómo obtener mi ID?
-                    </a>
-                </div>
+            <div class="mt-4 flex justify-center items-center gap-4 text-[9px] mono text-white/20">
+                <span>STATUS: ACTIVE</span>
+                <span class="text-white/5">•</span>
+                <span>ORIGIN: BLITZ_HUB_CENTRAL</span>
             </div>
+        </div>
 
-            <div>
-                <label class="block text-xs mono text-white/40 mb-2 uppercase">// Descripción del problema</label>
-                <textarea id="problema" required rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 outline-none focus:border-green-500 transition" placeholder="¿En qué podemos ayudarte hoy?"></textarea>
+        <div class="flex flex-col items-center gap-2">
+            <div class="text-[10px] mono text-white/20 uppercase tracking-[0.5em]">
+                &copy; 2026 FIX IT BLITZ HUB // BUILD FOR SCALE
             </div>
-
-            <button type="submit" class="w-full py-4 bg-green-500 text-black font-black rounded-xl hover:scale-[1.01] transition shadow-lg shadow-green-500/20 uppercase tracking-tighter">
-                Enviar a Central de Soporte
-            </button>
-        </form>
+            <div class="h-8 w-[1px] bg-gradient-to-b from-green-500/50 to-transparent"></div>
+        </div>
     </div>
-</section>
-
-    <footer class="py-12 px-6 text-center text-white/20 text-xs mono border-t border-white/5">
-        &copy; 2026 FIX IT BLITZ HUB // BUILT FOR SCALE
-    </footer>
+</footer>
 
 	<script>
 	async function enviarIncidencia(event) {
@@ -279,8 +428,9 @@
         btn.disabled = false;
     }
 }
+
+
 </script>
 	
 </body>
 </html>
-

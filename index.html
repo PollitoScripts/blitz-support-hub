@@ -12,9 +12,9 @@
         .gradient-text { background: linear-gradient(90deg, #4ade80, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
 		
-		/* Adaptación Colores Blitz para Wise Wombat */
+    /* --- BOTÓN UI VERSE PRINCIPAL --- */
 	.uiverse-btn {
-	  --color: #4ade80; /* Verde Blitz */
+	  --color: #4ade80; 
 	  --background: #09090b;
 	  font-family: 'JetBrains Mono', monospace;
 	  padding: 10px 25px;
@@ -25,7 +25,7 @@
 	  z-index: 1;
 	  border-radius: 12px;
 	  cursor: pointer;
-	  transform: scale(1.5); /* Lo hacemos un poco más grande */
+	  transform: scale(1.5);
 	}
 
 	.uiverse-wrapper {
@@ -56,15 +56,9 @@
 	  box-shadow: 0 0 10px var(--color), 0 0 20px var(--color);
 	}
 	
-	.uiverse-btn:active {
-    transform: scale(1.2); /* Se encoge un pelín al hacer clic para dar feedback */
-	}
-
-	a.block:hover {
-		filter: brightness(1.1); /* Brilla un poco más al pasar el ratón */
-	}
+	.uiverse-btn:active { transform: scale(1.2); }
+	a.block:hover { filter: brightness(1.1); }
 	
-	/* Animaciones de expansión al pasar el mouse */
 	.uiverse-btn:hover .uiverse-flower1 { transform: translate(-40px, -30px); }
 	.uiverse-btn:hover .uiverse-flower2 { transform: translate(40px, -30px); }
 	.uiverse-btn:hover .uiverse-flower3 { transform: translate(-40px, 30px); }
@@ -72,43 +66,74 @@
 	.uiverse-btn:hover .uiverse-flower5 { transform: translate(0, -45px); }
 	.uiverse-btn:hover .uiverse-flower6 { transform: translate(0, 45px); }
 	
-	/* Indicador de Estado Activo */
+    /* --- COMPONENTE SUCCESS CUSTOM (Wicked Chipmunk -> Blitz Edition) --- */
+    .card-success {
+      width: 320px; height: 130px;
+      background: #09090b; position: relative;
+      display: flex; place-content: center; place-items: center;
+      overflow: hidden; border-radius: 20px;
+      box-shadow: 0 0 30px rgba(74, 222, 128, 0.2);
+    }
+    .card-success h2 { z-index: 1; color: #4ade80; font-size: 0.85em; font-family: 'JetBrains Mono'; text-align: center; padding: 20px; font-weight: 800; line-height: 1.5; }
+    .card-success::before {
+      content: ''; position: absolute; width: 120px; 
+      background-image: linear-gradient(180deg, #4ade80, #10b981);
+      height: 150%; animation: rotBGimg 3s linear infinite;
+    }
+    .card-success::after { content: ''; position: absolute; background: #09090b; inset: 4px; border-radius: 16px; }
+
+    /* --- COMPONENTE ERROR CUSTOM (Heavy Cobra -> Blitz Alert) --- */
+    .card-error {
+      width: 320px; height: 130px;
+      background: #1a0a0a; position: relative;
+      display: flex; place-content: center; place-items: center;
+      overflow: hidden; border-radius: 20px; border: 1px solid #ff4b4b;
+      box-shadow: 0 0 30px rgba(255, 75, 75, 0.2);
+    }
+    .card-error h2 { z-index: 1; color: #ff4b4b; font-size: 0.85em; font-family: 'JetBrains Mono'; text-align: center; font-weight: 800; padding: 20px; }
+    .card-error::before {
+      content: ''; position: absolute; width: 40px; background: #ff4b4b;
+      height: 150%; animation: rotBGimg 1.5s linear infinite;
+    }
+    .card-error::after { content: ''; position: absolute; background: #09090b; inset: 4px; border-radius: 16px; }
+
+    @keyframes rotBGimg {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+	/* --- INDICADOR DE ESTADO --- */
 	.status-container {
-	  display: flex;
-	  align-items: center;
-	  gap: 10px;
-	  background: rgba(74, 222, 128, 0.05);
-	  padding: 8px 16px;
-	  border-radius: 50px;
-	  border: 1px solid rgba(74, 222, 128, 0.2);
-	  margin-bottom: 20px;
+	  display: flex; align-items: center; gap: 10px;
+	  background: rgba(74, 222, 128, 0.05); padding: 8px 16px;
+	  border-radius: 50px; border: 1px solid rgba(74, 222, 128, 0.2); margin-bottom: 20px;
 	}
-
 	.status-dot {
-	  width: 8px;
-	  height: 8px;
-	  background-color: #4ade80;
-	  border-radius: 50%;
-	  position: relative;
-	  animation: pulse-green 2s infinite;
+	  width: 8px; height: 8px; background-color: #4ade80; border-radius: 50%;
+	  position: relative; animation: pulse-green 2s infinite;
 	}
-
-	.status-text {
-	  font-family: 'JetBrains Mono', monospace;
-	  font-size: 11px;
-	  color: #4ade80;
-	  letter-spacing: 1px;
-	  text-transform: uppercase;
-	}
-
+	.status-text { font-family: 'JetBrains Mono'; font-size: 11px; color: #4ade80; letter-spacing: 1px; text-transform: uppercase; }
 	@keyframes pulse-green {
 	  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
 	  70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
 	  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
 	}
+
+    /* MODAL OVERLAY */
+    #notification-overlay {
+        position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+        backdrop-filter: blur(10px); z-index: 9999;
+        display: none; place-items: center;
+        animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="selection:bg-green-500/30">
+
+    <div id="notification-overlay" onclick="this.style.display='none'">
+        <div id="notification-content"></div>
+    </div>
 
     <nav class="fixed w-full z-50 glass px-6 py-4 flex justify-between items-center">
         <div class="text-xl font-extrabold tracking-tighter">
@@ -387,49 +412,79 @@
     </div>
 </footer>
 
-	<script>
-	async function enviarIncidencia(event) {
-    event.preventDefault();
-    
-    const apiURL = "https://pollitos-discord.onrender.com/ticket";
-    const btn = event.target.querySelector('button');
-    const originalText = btn.innerText;
-    
-    btn.innerText = "PROCESANDO TICKET...";
-    btn.disabled = true;
-
-    const data = {
-        nombre: document.getElementById('nombre').value,
-        email: document.getElementById('email').value,
-        empresa: document.getElementById('empresa').value, 
-        discord_id: document.getElementById('discord_id').value,
-        cliente_id: document.getElementById('cliente_id').value || "GUEST",
-        problema: document.getElementById('problema').value
-    };
-
-    try {
-        const response = await fetch(apiURL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        });
-
-        if (response.ok) {
-            alert("✅ Incidencia enviada. Si eres cliente VIP, se te respondera en un tiempo < 4 horas.");
-            event.target.reset();
-        } else { 
-            throw new Error("Error en la respuesta del servidor"); 
+<script>
+    /**
+     * Gestión de notificaciones visuales Uiverse
+     */
+    function showNotification(type, message) {
+        const overlay = document.getElementById('notification-overlay');
+        const content = document.getElementById('notification-content');
+        
+        let html = '';
+        if (type === 'success') {
+            html = `
+                <div class="card-success">
+                    <h2>TICKET ENVIADO CON ÉXITO<br><span style="font-size:0.7em; color:rgba(255,255,255,0.5); font-weight:400;">${message}</span></h2>
+                </div>`;
+        } else {
+            html = `
+                <div class="card-error">
+                    <h2>FALLO EN PROTOCOLO<br><span style="font-size:0.7em; color:rgba(255,255,255,0.5); font-weight:400;">${message}</span></h2>
+                </div>`;
         }
-    } catch (error) {
-        console.error("Error:", error);
-        alert("❌ Error de conexión con el Hub.");
-    } finally {
-        btn.innerText = originalText;
-        btn.disabled = false;
+        
+        content.innerHTML = html;
+        overlay.style.display = 'grid';
+        
+        // Cierre automático
+        setTimeout(() => {
+            overlay.style.display = 'none';
+        }, 5000);
     }
-}
 
+    /**
+     * Lógica de envío al Hub
+     */
+    async function enviarIncidencia(event) {
+        event.preventDefault();
+        
+        const apiURL = "https://pollitos-discord.onrender.com/ticket";
+        const btn = event.target.querySelector('button');
+        const originalText = btn.innerText;
+        
+        btn.innerText = "ACCEDIENDO AL NÚCLEO...";
+        btn.disabled = true;
 
+        const data = {
+            nombre: document.getElementById('nombre').value,
+            email: document.getElementById('email').value,
+            empresa: document.getElementById('empresa').value, 
+            discord_id: document.getElementById('discord_id').value,
+            cliente_id: document.getElementById('cliente_id').value || "GUEST",
+            problema: document.getElementById('problema').value
+        };
+
+        try {
+            const response = await fetch(apiURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+                showNotification('success', "Respuesta Blitz en < 4h garantizada.");
+                event.target.reset();
+            } else { 
+                throw new Error("Rechazo de servidor"); 
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            showNotification('error', "Error de enlace. Usa el canal de Discord.");
+        } finally {
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }
+    }
 </script>
 	
 </body>

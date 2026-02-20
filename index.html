@@ -472,10 +472,10 @@
             });
 
             if (response.ok) {
-                showNotification('success', "Respuesta Blitz en < 4h garantizada.");
+                showNotification('success', "Su ticket ha sido enviado a nuestro equipo de soporte.");
                 event.target.reset();
             } else { 
-                throw new Error("Rechazo de servidor"); 
+                throw new Error("Rechazo de servidor, Intentelo de nuevo mas tarde."); 
             }
         } catch (error) {
             console.error("Error:", error);
@@ -489,3 +489,4 @@
 	
 </body>
 </html>
+

@@ -442,11 +442,11 @@
         }, 5000);
     }
 
-    /**
-     * Lógica de envío al Hub
+     /**
+     * Logica de envio al HUB
      */
-    async function enviarIncidencia(event) {
-        event.preventDefault();
+	  async function enviarIncidencia(event) {
+        if (event) event.preventDefault(); 
         
         const apiURL = "https://pollitos-discord.onrender.com/ticket";
         const btn = event.target.querySelector('button');
@@ -472,14 +472,19 @@
             });
 
             if (response.ok) {
-                showNotification('success', "Su ticket ha sido enviado a nuestro equipo de soporte.");
+                showNotification('success', "Ticket enviado, Nuestro Soporte ha recibuso su incidencia.");
                 event.target.reset();
             } else { 
-                throw new Error("Rechazo de servidor, Intentelo de nuevo mas tarde."); 
+                throw new Error("RECHAZO_INTERNO"); 
             }
         } catch (error) {
-            console.error("Error:", error);
-            showNotification('error', "Error de enlace. Usa el canal de Discord.");
+            let mensajeFinal = "ERROR DE ENLACE: No logramos conectar con el núcleo. Revisa tu conexión o usa Email.";
+            
+            if (error.message === "RECHAZO_INTERNO") {
+                mensajeFinal = "SISTEMA SATURADO: El núcleo recibió la orden pero no pudo procesarla. Reintenta en breve.";
+            }
+
+            showNotification('error', mensajeFinal);
         } finally {
             btn.innerText = originalText;
             btn.disabled = false;
@@ -489,4 +494,3 @@
 	
 </body>
 </html>
-
